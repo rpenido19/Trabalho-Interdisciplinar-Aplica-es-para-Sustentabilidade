@@ -41,4 +41,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function dataTable($filters)
+    {
+        $query = User::select("id", "name", "cell", "email", "birthday", "flag_admin");
+
+        if ($filters["flag_admin"] == 0 || $filters["flag_admin"] == 1) {
+            $query->where("flag_admin", $filters["flag_admin"]);
+        }
+
+        return $query->get()->toArray();
+    }
 }

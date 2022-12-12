@@ -20,6 +20,7 @@ class UserAdminSeeder extends Seeder
             'name' => "Admin",
             'email' => "admin@mail.com",
             'password' => Hash::make('Admin@123'),
+            'flag_admin' => 1,
         ]);
     }
 }

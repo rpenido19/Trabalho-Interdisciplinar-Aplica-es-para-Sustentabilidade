@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('flag_admin')->default('0');
             $table->date('birthday')->nullable();
             $table->string('gender', 100)->nullable();
             $table->unsignedBigInteger('user_log')->nullable();

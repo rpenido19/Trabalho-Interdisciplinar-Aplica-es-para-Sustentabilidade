@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,12 @@ Route::get('/dashboard', function () {
 /* NewsRoute */
 Route::prefix('news')->group(function () {
     Route::get('/', [NewsController::class, 'index'])->middleware(['auth', 'verified'])->name('news');
+});
+
+/* UserRoute */
+Route::prefix('user')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('user');
+    Route::get('/dataTable', [UserController::class, 'dataTable']);
 });
 
 require __DIR__.'/auth.php';

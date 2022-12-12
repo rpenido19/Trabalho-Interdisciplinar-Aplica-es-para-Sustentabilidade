@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('user/index');
     }
 
     /**
@@ -81,5 +81,11 @@ class UserController extends Controller
     public function destroy(UserController $userController)
     {
         //
+    }
+
+    public function dataTable(Request $request)
+    {
+        $data = User::dataTable($request->all());
+        return response()->json(["data" => $data], 200);
     }
 }
