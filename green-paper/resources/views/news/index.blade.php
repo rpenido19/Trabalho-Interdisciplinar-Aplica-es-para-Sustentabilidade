@@ -17,7 +17,6 @@
                     <table class="dataTable table table-sm table-striped table-hover w-100" id="news-table">
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Título</th>
                                 <th>Autor</th>
                                 <th>Tags</th>

@@ -17,7 +17,6 @@ function newsTableDataTable() {
         },
         columnDefs: [{ 'targets': '_all', 'defaultContent': '' }],
         columns: [
-            { data: "id" },
             { data: "title" },
             { data: "author" },
             { data: "tags" },
