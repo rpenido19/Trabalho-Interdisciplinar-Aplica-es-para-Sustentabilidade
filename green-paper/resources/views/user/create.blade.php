@@ -45,7 +45,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i
                         class="fas fa-times me-1"></i>Fechar</button>
-                <button type="button" class="btn btn-success"><i class="fas fa-save me-1"></i>Salvar</button>
+                <button type="button" class="btn btn-success" onclick="storeUser()"><i class="fas fa-save me-1"></i>Salvar</button>
             </div>
         </div>
     </div>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('author', 100);
             $table->string('title', 100);
+            $table->string('tags', 200);
             $table->text('description');
             $table->string('url', 100);
             $table->date('published_at');

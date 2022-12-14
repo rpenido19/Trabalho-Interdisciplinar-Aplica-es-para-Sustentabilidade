@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
+
+    public static function dataTable($filters)
+    {
+        $query = News::select("id", "title", "author", "tags", "description", "created_at");
+        return $query->get()->toArray();
+    }
+
 }

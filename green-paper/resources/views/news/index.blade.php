@@ -9,9 +9,27 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-success" onclick="createNew()"><i class="fas fa-plus-circle me-1"></i>Cadastrar</button>
+                    </div>
+                </div>
+                <div class="table-responsive m-3">
+                    <table class="dataTable table table-sm table-striped table-hover w-100" id="news-table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Tags</th>
+                                <th>Data de cadastro</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+
 </x-app-layout>
+<script src="{{ asset('/js/news/index.js') }}"></script>
+@include('news/create')

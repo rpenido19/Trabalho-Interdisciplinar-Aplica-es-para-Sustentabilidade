@@ -82,4 +82,10 @@ class NewsController extends Controller
     {
         //
     }
+
+    public function dataTable(Request $request)
+    {
+        $data = News::dataTable($request->all());
+        return response()->json(["data" => $data], 200);
+    }
 }

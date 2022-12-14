@@ -1,41 +1,33 @@
 $(document).ready(function () {
-    $("#flag_admin").on("change", function () {
-        userTableDataTable()
-    })
-    userTableDataTable();
+    newsTableDataTable();
 });
 
-function userTableDataTable() {
-    if ($.fn.DataTable.isDataTable('#user-table')) {
-        $('#user-table').DataTable().destroy();
+
+function newsTableDataTable() {
+    if ($.fn.DataTable.isDataTable('#news-table')) {
+        $('#news-table').DataTable().destroy();
     }
-    $('#user-table').DataTable({
+    $('#news-table').DataTable({
         responsive: true,
         language: { 'url': '//cdn.datatables.net/plug-ins/1.13.1/i18n/pt-BR.json' },
         ajax: {
-            url: '/user/dataTable',
+            url: '/news/dataTable',
             type: 'GET',
-            data: {
-                flag_admin: $("#flag_admin").val()
-            }
+            data: {}
         },
         columnDefs: [{ 'targets': '_all', 'defaultContent': '' }],
         columns: [
-            { data: "name" },
-            { data: "cell" },
-            { data: "email" },
-            { data: "birthday" },
-            {
-                data: "flag_admin", render: function (data, type) {
-                    return data == 1 ? "Administrador" : "Cliente"
-                }
-            },
+            { data: "id" },
+            { data: "title" },
+            { data: "author" },
+            { data: "tags" },
+            { data: "created_at" },
         ],
         "order": [[0, 'asc']],
         "lengthChange": false
     });
 }
 
-function createUser() {
-    $('#createUser').modal('show')
+function createNew() {
+    $('#createNew').modal('show')
 }
