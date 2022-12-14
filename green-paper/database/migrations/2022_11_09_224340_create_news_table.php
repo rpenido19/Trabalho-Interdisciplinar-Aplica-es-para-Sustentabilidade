@@ -21,8 +21,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('url', 100);
             $table->date('published_at');
-            $table->tinyInteger('likes');
-            $table->tinyInteger('accesses');
+            $table->integer('likes');
+            $table->integer('accesses');
             $table->unsignedBigInteger('user_log');
             $table->foreign('user_log')->references('id')->on('users');
             $table->timestamps();

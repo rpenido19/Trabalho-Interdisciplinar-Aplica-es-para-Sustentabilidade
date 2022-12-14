@@ -11,7 +11,7 @@ class News extends Model
 
     public static function dataTable($filters)
     {
-        $query = News::select("id", "title", "author", "tags", "description", "created_at");
+        $query = News::select("id", "title", "author", "tags", "description", "published_at");
         return $query->get()->toArray();
     }
 

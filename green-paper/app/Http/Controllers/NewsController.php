@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
+use Auth;
 
 class NewsController extends Controller
 {
@@ -35,7 +36,23 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $news = new News;
+            $news->author = $request->input("author") ? $request->input("author") : null;
+            $news->title = $request->input("title") ? $request->input("title") : null;
+            $news->tags = $request->input("tags") ? $request->input("tags") : null;
+            $news->description = $request->input("description") ? $request->input("description") : null;
+            $news->url = $request->input("url") ? $request->input("url") : null;
+            $news->published_at = $request->input("published_at") ? $request->input("published_at") : null;
+            $news->likes = 0;
+            $news->accesses = 0;
+            $news->user_log = Auth::user()->id;
+            $news->created_at = date('Y-m-d h:m:s');
+            $news->save();
+            return ["code" => 200, "message" => "Cadastrado com sucesso"];
+        } catch (Exception $e) {
+            return ["code" => 500, "message" => "Erro ao cadastrar"];
+        }
     }
 
     /**

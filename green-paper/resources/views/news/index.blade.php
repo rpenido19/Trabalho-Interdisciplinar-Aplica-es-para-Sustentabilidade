@@ -21,7 +21,7 @@
                                 <th>Título</th>
                                 <th>Autor</th>
                                 <th>Tags</th>
-                                <th>Data de cadastro</th>
+                                <th>Data de Publicação</th>
                             </tr>
                         </thead>
                     </table>

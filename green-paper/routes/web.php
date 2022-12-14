@@ -27,6 +27,7 @@ Route::get('/dashboard', function () {
 Route::prefix('news')->group(function () {
     Route::get('/', [NewsController::class, 'index'])->middleware(['auth', 'verified'])->name('news');
     Route::get('/dataTable', [NewsController::class, 'dataTable']);
+    Route::post('/store', [NewsController::class, 'store']);
 });
 
 /* UserRoute */

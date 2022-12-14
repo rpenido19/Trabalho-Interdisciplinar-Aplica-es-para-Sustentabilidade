@@ -37,6 +37,7 @@ function userTableDataTable() {
 }
 
 function createUser() {
+    $("#alert").html("");
     $('#createUser').modal('show')
 }
 
