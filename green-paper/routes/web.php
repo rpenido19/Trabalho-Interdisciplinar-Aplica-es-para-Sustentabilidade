@@ -33,6 +33,7 @@ Route::prefix('news')->group(function () {
 Route::prefix('user')->group(function () {
     Route::get('/', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('user');
     Route::get('/dataTable', [UserController::class, 'dataTable']);
+    Route::post('/store', [UserController::class, 'store']);
 });
 
 require __DIR__.'/auth.php';

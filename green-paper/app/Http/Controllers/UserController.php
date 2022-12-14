@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Auth;
 
 class UserController extends Controller
 {
@@ -35,7 +37,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $user = new User;
+            $user->name = $request->input("name") ? $request->input("name") : null;
+            $user->cell = $request->input("cell") ? $request->input("cell") : null;
+            $user->email = $request->input("email") ? $request->input("email") : null;
+            $user->email_verified_at = $request->input("email_verified_at") ? $request->input("email_verified_at") : null;
+            $user->password = Hash::make($request->input("password"));
+            $user->flag_admin = $request->input("flag_admin") ? $request->input("flag_admin") : 0;
+            $user->birthday = $request->input("birthday") ? $request->input("birthday") : null;
+            $user->gender = $request->input("gender") ? $request->input("gender") : null;
+            $user->user_log = Auth::user()->id;
+            $user->remember_token = $request->input("remember_token") ? $request->input("remember_token") : null;
+            $user->created_at = date('Y-m-d h:m:s');
+            $user->save();
+            return ["code" => 200, "message" => "Cadastrado com sucesso"];
+        } catch (Exception $e) {
+            return ["code" => 500, "message" => "Erro ao cadastrar"];
+        }
     }
 
     /**

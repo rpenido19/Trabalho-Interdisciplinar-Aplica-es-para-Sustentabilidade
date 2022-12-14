@@ -41,5 +41,48 @@ function createUser() {
 }
 
 function storeUser() {
-    console.log("teste")
+    $("#alert").html("");
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: "/user/store",
+        data: {
+            name: $("#edit-user-name").val(),
+            cell: $("#edit-user-cell").val(),
+            email: $("#edit-user-email").val(),
+            password: $("#edit-user-password").val(),
+            flag_admin: $("#edit-user-flag_admin").val(),
+            birthday: $("#edit-user-birthday").val(),
+            gender: $("#edit-user-gender").val(),
+        },
+        dataType: 'JSON',
+        success: function (result) {
+            $("#edit-user-name").val(null);
+            $("#edit-user-cell").val(null);
+            $("#edit-user-email").val(null);
+            $("#edit-user-password").val(null);
+            $("#edit-user-flag_admin").val(0);
+            $("#edit-user-birthday").val(null);
+            $("#edit-user-gender").val(null);
+            userTableDataTable();
+            $("#alert").html(
+                `<div class="alert alert-success d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                    <div>
+                        ` + result.message + `
+                    </div>
+                </div>`);
+        },
+        error: function () {
+            $("#alert").html(
+                `<div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                    <div>
+                        Erro ao cadastrar
+                    </div>
+                </div>`);
+        }
+    });
 }

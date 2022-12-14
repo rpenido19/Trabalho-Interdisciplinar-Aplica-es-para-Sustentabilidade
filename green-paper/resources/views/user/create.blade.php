@@ -7,38 +7,39 @@
             </div>
             <div class="modal-body">
                 <form class="row" id="create-user">
+                    <x-alert/>
                     <div class="col-lg-6 col-xl-4 mb-3">
                         <label for="name" class="form-label">Nome <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Nome">
+                        <input type="text" class="form-control" name="name" id="edit-user-name" placeholder="Nome">
                     </div>
                     <div class="col-lg-6 col-xl-4 mb-3">
                         <label for="cell" class="form-label">Telefone</label>
-                        <input type="text" class="form-control" name="cell" id="cell" placeholder="Telefone">
+                        <input type="text" class="form-control" name="cell" id="edit-user-cell" placeholder="Telefone">
                     </div>
                     <div class="col-lg-6 col-xl-4 mb-3">
                         <label for="email" class="form-label">E-mail <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
+                        <input type="email" class="form-control" name="email" id="edit-user-email" placeholder="E-mail">
                     </div>
                     <div class="col-lg-6 col-xl-4 mb-3">
                         <label for="password" class="form-label">Senha <span class="text-danger">*</span></label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Senha">
+                        <input type="password" class="form-control" name="password" id="edit-user-password" placeholder="Senha">
                     </div>
                     <div class="col-lg-6 col-xl-4 mb-3">
                         <label for="flag_admin" class="form-label">Tipo de Usuário <span
                                 class="text-danger">*</span></label>
-                        <select class="form-control" name="flag_admin" id="flag_admin">
+                        <select class="form-control" name="flag_admin" id="edit-user-flag_admin">
                             <option value="1">Administrador</option>
                             <option value="0" selected>Cliente</option>
                         </select>
                     </div>
                     <div class="col-lg-6 col-xl-4 mb-3">
                         <label for="birthday" class="form-label">Aniversário</label>
-                        <input type="date" class="form-control" name="birthday" id="birthday"
+                        <input type="date" class="form-control" name="birthday" id="edit-user-birthday"
                             placeholder="Aniversário">
                     </div>
                     <div class="col-lg-6 col-xl-4 mb-3">
                         <label for="gender" class="form-label">Gênero</label>
-                        <input type="text" class="form-control" name="gender" id="gender" placeholder="Gênero">
+                        <input type="text" class="form-control" name="gender" id="edit-user-gender" placeholder="Gênero">
                     </div>
                 </form>
             </div>
